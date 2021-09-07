@@ -21,20 +21,20 @@ def Harvester():
           if (text["ns"] != 0):
             #not a text
             continue
-          print("  —Getting raw full-text for title",text["title"]);
+          print("  -Getting raw full-text for title",text["title"]);
           textUrl = "https://ws-export.wmcloud.org/?lang=" + config.LANG + "&page=" + urllib.parse.quote_plus(text["title"]) + "&format=txt&fonts="
-          print("  —Fetching URL:",textUrl)
+          print("  -Fetching URL:",textUrl)
           with urlopen(Request(textUrl, headers={"User-Agent": config.USER_AGENT})) as textResponse:
             textResponse = textResponse.read().decode(textResponse.headers.get_content_charset())
-            print("  —removing chapter separators")
+            print("  -removing chapter separators")
             content = re.sub("\* \* \*","",textResponse)
-            print("  —removing notes")
+            print("  -removing notes")
             content = re.sub("↑ .*","",content)
-            print("  —removing line breaks")
+            print("  -removing line breaks")
             content = re.sub("[\n\r]+"," ",content)
-            print("  —removing multiple spaces")
+            print("  -removing multiple spaces")
             content = re.sub("\s+"," ",content)
-            print("  —removing wikisource credits")
+            print("  -removing wikisource credits")
             content = re.sub(config.TEXT_LIMIT+".*","",content)
             if (content != " "):
               f.write(content)
