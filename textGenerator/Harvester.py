@@ -3,8 +3,6 @@ import urllib.parse
 import re
 import json
 from urllib.request import Request, urlopen
-from lxml.html import parse
-from lxml.cssselect import CSSSelector
 
 def Harvester():
   print("Harvesting text content...")
