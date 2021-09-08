@@ -21,10 +21,11 @@ class SentenceMaker:
     total = sum(self.fullEnd["p"])
     self.fullEnd["p"] = list(map(lambda p: p/total,self.fullEnd["p"]))
 
-  def makeSentence(self):
+  def makeSentence(self, length=0):
     sentence = []
     startWord = numpy.random.choice(self.start["v"],p=self.start["p"])
-    length = numpy.random.choice(self.length["v"],p=self.length["p"])
+    if (length == 0):
+      length = numpy.random.choice(self.length["v"],p=self.length["p"])
     dot = numpy.random.choice(self.dots["v"],p=self.dots["p"])
     end = numpy.random.choice(self.fullEnd["v"],p=self.fullEnd["p"])
     sentence.append(startWord)
