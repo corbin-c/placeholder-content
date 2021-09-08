@@ -8,4 +8,4 @@ provide random JSON content in order to test frontend
 * Install requirements: `pip -r requirements.txt`
 * Configure the text generator editing the `textGenerator/config.py` file
 * Initialize the text generator: `cd textGenerator && python newText.py`
-* Launch flask: `export FLASK_APP=myapp.py && flask run`
+* Launch flask: `export FLASK_APP=randomText.py && flask run`
