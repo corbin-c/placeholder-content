@@ -1,4 +1,4 @@
-TEXT = "static/test.txt"
+TEXT = "static/raw_text"
 OUTPUT = "static/output.json"
 LANG = "fr"
 CATEGORY_PREFIX = "Catégorie"
